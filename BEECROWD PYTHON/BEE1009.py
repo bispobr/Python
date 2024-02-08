@@ -1,0 +1,5 @@
+nome=str(input())
+sal=float(input())
+totv=float(input())
+nsal = (sal) + ((totv*15)/100)
+print("TOTAL = R$ {:.2f}".format(nsal))

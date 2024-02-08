@@ -1,0 +1,5 @@
+times = ('Palmeiras','Flamengo','Botafogo','Atlético-MG','Grêmio','Bragantino','Fluminense','Athletico-PR','Cuiabá','São Paulo','Internacional','Fortaleza','Corinthians','Santos','Vasco','Bahia','Cruzeiro','Goiás','Coritiba','América-MG')
+print(f'os 5 primeiros times são:{times[:5]}')
+print(f'os 4 ultimos times são:{times[16:]}')
+print(f'Times em ordem alfabetica : {sorted(times)}')
+print(f'Em que posição está o time da Internacional: {times.index("Internacional") + 1} posição')
