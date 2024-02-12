@@ -1,4 +1,4 @@
-import moeda
+from utilidadescev import moeda
 num = int(input('digite um valor:'))
 print(f' o dobro de {moeda.moeda(num)} é {moeda.dobro(num,'s')}')
 print(f' a metade de {moeda.moeda(num)} é {(moeda.metade(num))}')
