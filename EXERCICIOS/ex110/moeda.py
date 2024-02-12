@@ -35,3 +35,15 @@ def metade (d, f='s'):
 
 def moeda(preco=0,moeda = 'R$' ):
     return f'{moeda}{preco:.2f}'.replace('.',',')
+
+
+
+def resumo (preco,aumento,diminuicao):
+    print('==' * 20)
+    print('RESUMO DO VALOR')
+    print('==' * 20)
+    print(f' o dobro de {moeda(preco)} é {dobro(preco, 's')}')
+    print(f' a metade de {moeda(preco)} é {(metade(preco))}')
+    print(f' Aumento de 10%, temos {aumentar(preco, aumento)}')
+    print(f' Diminuição de 10%, temos {diminuir(preco, diminuicao)}')
+    print('==' * 20)
