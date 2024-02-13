@@ -43,13 +43,18 @@ def switch_case(x):
     match x:
         case 1:
             print('++'*20)
-            print('opção 1')
+            print('Pessoas cadastradas')
             print('++' * 20)
+            lerarquivo()
             menu()
         case 2:
             print('++' * 20)
-            print('opção 2')
+            print('cadastro de nova Pessoa')
+            nome = str(input('Nome'))
+            idade = int(input('Idade:'))
+            cadastro(nome,idade)
             print('++' * 20)
+
             menu()
 
         case 3:
@@ -58,3 +63,35 @@ def switch_case(x):
             print('++' * 20)
 
 
+def arquiexiste():
+    try:
+        a = open("pessoa.txt",'rt')
+        a.close()
+        return True
+    except:
+        print('Arquivo não encontrado')
+        return False
+
+
+
+
+def lerarquivo ():
+    with open("pessoa.txt", "r") as arquivo:
+        email = arquivo.read()
+        print(email)
+
+
+
+def criararquivo():
+    with open("pessoa.txt", "w") as arquivo:
+        arquivo.write(" ")
+
+def cadastro (nome = 'desconheciado',idade = 0):
+    try:
+        a = open("pessoa.txt",'at')
+        a.write(f'nome: {nome} idade:{idade}\n')
+        a.close()
+        print('cadastrado com sucesso')
+    except:
+        print('Houve um erro na abertura do arquivo')
+        return False

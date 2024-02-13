@@ -1,5 +1,11 @@
 from utilidadescev import  dado
 
-dado.menu()
+if dado.arquiexiste():
+    dado.menu()
+else:
+    dado.criararquivo()
+    dado.menu()
+
+
 
 
