@@ -1,5 +1,5 @@
-a=(input())
-b=(input())
-
-m = (a[1] * a[2]) + (b[1] * b[2])
-print(m)
+valor1 = str(input()).split()
+valor2 = str(input()).split()
+v1 = float(valor1[2]) * int(valor1[1])
+v2 = float(valor2[2]) * int(valor2[1])
+print('VALOR A PAGAR: R$ {:.2f}'.format(v1 + v2))
