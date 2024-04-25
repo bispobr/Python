@@ -19,10 +19,8 @@ while True:
             print("novo calculo (1-sim 2-nao)")
             x = int(input())
             if x == 1:
-                break;
-            else:
-                print("novo calculo (1-sim 2-nao)")
-                x = int(input())
+                break
+
     if x == 1:
         continue
     elif x == 2 :
