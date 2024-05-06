@@ -3,6 +3,7 @@ limite = 500
 extrato = ""
 quantidade_saque = 0
 LIMITE_SAQUES = 3
+usuarios = []
 
 menu = """
 ==========================================
@@ -15,6 +16,7 @@ Banco Simples Digital
 [q] Sair
 ==========================================
 => """
+
 def saque(*,valor,limite,saldo,quantidade_saque,LIMITE_SAQUES,extrato):
     if valor > limite:
         print(f"O valor de R$ {valor} excede o limite de R$ 500 por saque.")
@@ -44,12 +46,27 @@ def extra(saldo,/,*,extrato):
     print(f"\nSaldo: R$ {saldo:.2f}")
     print("==========================================")
 
+def criar_usuario(usuarios):
+    cpf = int(input("cpf: (somente Numeros)"))
+
+    nome = str(input("Nome:"))
+    data = str(input("Data de Nascimento:"))
+    
+    endereço = str(input("endereço:"))
+    usuarios.append({"nome":nome,"data_nascimento":data,"cpf":cpf,"endereço":endereço})
+
+    print ("Usuario criado com sucesso!!!")
+
+def criar_conta():
+    pass    
+
 while True:
 
     opcao = input(menu)
 
     if opcao == "c":
         print("Criação de usuario")
+        criar_usuario(usuarios)
 
     elif opcao == "cc":
         print("criar conta")
