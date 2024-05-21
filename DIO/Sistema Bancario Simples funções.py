@@ -1,15 +1,19 @@
+import textwrap
 saldo = 0
 limite = 500
 extrato = ""
 quantidade_saque = 0
 LIMITE_SAQUES = 3
+AGENCIA = "0001"
 usuarios = []
+contas = []
 
 menu = """
 ==========================================
 Banco Simples Digital
 [c] criar usuario
 [cc] criar conta
+[l] listar contas
 [d] Depositar
 [s] Sacar
 [e] Extrato
@@ -48,17 +52,43 @@ def extra(saldo,/,*,extrato):
 
 def criar_usuario(usuarios):
     cpf = int(input("cpf: (somente Numeros)"))
+    usuario = usuario_filtro(cpf,usuarios)
+
+    if usuario:
+        print("Cpf já cadastrado não é possivel continuar a operação")
+        return
 
     nome = str(input("Nome:"))
     data = str(input("Data de Nascimento:"))
     
-    endereço = str(input("endereço:"))
-    usuarios.append({"nome":nome,"data_nascimento":data,"cpf":cpf,"endereço":endereço})
+    endereco = str(input("endereço:"))
+    usuarios.append({"nome":nome,"data_nascimento":data,"cpf":cpf,"endereco":endereco})
 
     print ("Usuario criado com sucesso!!!")
 
-def criar_conta():
-    pass    
+def criar_conta(agencia,numero_conta,usuarios):
+    cpf = int(input("cpf: (somente Numeros)")) 
+    usuario = usuario_filtro(cpf,usuarios) 
+
+    if usuario:
+        print("Conta Criada")
+        return {"agencia":agencia,"numero_conta":numero_conta,"usuario":usuario}
+    
+    print("Usuario não encontrado, operação não pode ser concluida.")
+  
+def usuario_filtro(cpf,usuarios):
+    filtro_usuario = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
+    return filtro_usuario[0] if filtro_usuario else None
+
+def listar_contas(contas):
+    for conta in contas:
+        linha = f"""\
+        Agencia:\t{conta['agencia']}
+        c/c:\t\t{conta['numero_conta']}
+        Titular:\t{conta['usuario']['nome']}
+        """
+        print("=" * 100)
+        print(linha)
 
 while True:
 
@@ -70,6 +100,13 @@ while True:
 
     elif opcao == "cc":
         print("criar conta")
+        numero_conta= len(contas) + 1
+        conta = criar_conta(AGENCIA,numero_conta,usuarios)
+
+        if conta:
+            contas.append(conta)
+    elif opcao == "l":
+        listar_contas (contas)
 
     elif opcao == "d":
       try:
