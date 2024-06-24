@@ -11,6 +11,9 @@ class Cachorro:
         self.acordado = False
         print("zzzz....")
 
+    def __str__(self) :
+        return f"cachorro: nome = {self.nome}, cor = {self.cor}, acordado = {self.acordado}"
+
 
 c1 = Cachorro("Dogo", "prata")
 c2 = Cachorro("lara","caramelo", False )
@@ -22,3 +25,6 @@ print(c1.acordado)
 
 c2.latir()
 print(c2.acordado)
+
+print(c1.__str__())
+print(c2.__str__())
