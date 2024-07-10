@@ -8,7 +8,7 @@ class bicicleta:
     def buzinar (self):
         print("Bi BI")
 
-    def parar (Self):
+    def parar (self):
         print("Parando")
 
     def correr (self):
