@@ -1,0 +1,2 @@
+antigo,novo = [float (x) for x in input().strip().split(' ')]
+print(f'{(100 * novo / antigo - 100):.2f}%')
