@@ -6,6 +6,5 @@ while True:
             break
 
         print(0 if p == 0 else p - 1)
-
     except EOFError:
         break
