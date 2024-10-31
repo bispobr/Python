@@ -4,13 +4,10 @@ for c in range(n):
     palavra2= input()
     palavra3= input()
     
-    posicao3 = []
-
-    for c in range (len(palavra3)):
-        if palavra3[c] =="_":
-            posicao3.append(c)
-
-    if palavra1[posicao3[1]] == palavra2 [posicao3[0]]  or palavra1[posicao3[0]] == palavra2[posicao3[1]]:
+    inicio = palavra3.find("_")
+    fim = palavra3.rfind("_")
+    
+    if palavra1[fim] == palavra2 [inicio]  or palavra1[inicio] == palavra2[fim]:
         print("Y")
     else:        
         print("N")
